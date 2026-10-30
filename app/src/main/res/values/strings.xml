@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="time">Время</string>
+    <string name="speed_wind">Ск.ветра</string>
+    <string name="pressure">Давление</string>
+    <string name="wet">Влажность</string>
+    <string name="weather">Погода</string>
+    <string name="predict">Прогноз</string>
+    <string name="error">Ошибка</string>
+    <string name="weather_cloudy">Облачно</string>
+    <string name="weather_fog">Туман</string>
+    <string name="weather_heave_snow">Сильный снегопад</string>
+    <string name="weather_heave_sleet">Мокрый снег</string>
+    <string name="weather_heave_sleet_snow_shower">Снежный ливень</string>
+    <string name="weather_overcast">Пасмурно</string>
+    <string name="weather_party_cloudy">Малооблачно</string>
+    <string name="weather_rainy">Дождь</string>
+    <string name="weather_small_rain">Слабый дождь</string>
+    <string name="weather_snowy_shower">Слабый дождь</string>
+    <string name="weather_sun">Солнечно</string>
+    <string name="weather_thundershtorm_showers">Дождь с грозой</string>
+    <string name="weather_windy">Ветренно</string>
+</resources>
