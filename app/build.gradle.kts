@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "ru.iharkov.weatherapp"
-        minSdk = 37
+        minSdk = 34
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"

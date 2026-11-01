@@ -20,4 +20,5 @@
     <string name="weather_sun">Солнечно</string>
     <string name="weather_thundershtorm_showers">Дождь с грозой</string>
     <string name="weather_windy">Ветренно</string>
+    <string name="error_description">retrofit.NetworkException: host http://weather.com/ could not be resolved</string>
 </resources>

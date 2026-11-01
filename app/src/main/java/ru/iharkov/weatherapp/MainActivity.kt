@@ -6,21 +6,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import ru.iharkov.weatherapp.Screens.CurrentWeather
-import ru.iharkov.weatherapp.Screens.Forecast
-import ru.iharkov.weatherapp.Screens.LoadingScreen
-import ru.iharkov.weatherapp.States.WeatherState
 import ru.iharkov.weatherapp.navigation.AppNavHost
+import ru.iharkov.weatherapp.screens.LoadingScreen
+import ru.iharkov.weatherapp.ui.theme.WeatherAppTheme
+import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.error.ErrorScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val controller = rememberNavController()
-            AppNavHost(
-                navHostController = controller
-            )
+            WeatherAppTheme() {
+                val controller = rememberNavController()
+                AppNavHost(
+                    navHostController = controller
+                )
+            }
         }
     }
 }

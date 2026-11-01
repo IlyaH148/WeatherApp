@@ -1,14 +1,13 @@
 package ru.iharkov.weatherapp.navigation
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import ru.iharkov.weatherapp.Screens.CurrentWeather
-import ru.iharkov.weatherapp.Screens.Forecast
+import ru.iharkov.weatherapp.screens.CurrentWeather
+import ru.iharkov.weatherapp.screens.Forecast
 
 @Composable
 fun AppNavHost(

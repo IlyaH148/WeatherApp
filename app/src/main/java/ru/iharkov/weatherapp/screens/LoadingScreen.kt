@@ -1,4 +1,4 @@
-package ru.iharkov.weatherapp.Screens
+package ru.iharkov.weatherapp.screens
 
 import androidx.compose.runtime.Composable
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.loading.Loading

@@ -1,4 +1,4 @@
-package ru.iharkov.weatherapp.States
+package ru.iharkov.weatherapp.states
 
 data class ForecastDay(
     val weatherState: WeatherState,

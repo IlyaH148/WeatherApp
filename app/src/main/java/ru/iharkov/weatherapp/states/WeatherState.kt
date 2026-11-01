@@ -1,7 +1,5 @@
-package ru.iharkov.weatherapp.States
+package ru.iharkov.weatherapp.states
 
-import androidx.annotation.DrawableRes
-import androidx.compose.ui.res.stringResource
 import ru.iharkov.weatherapp.R
 
 enum class WeatherState(
@@ -24,5 +22,4 @@ enum class WeatherState(
         icon = R.drawable.ic_rainy,
         title = R.string.weather_rainy,
     )
-
 }
