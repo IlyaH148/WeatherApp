@@ -73,7 +73,7 @@ fun BigWeather(
                 )
                 Spacer(modifier = Modifier.height(WeatherSpacers.spacer16))
                 Text(
-                    text = "$temperature°",
+                    text = "$temperature",
                     style = WeatherTypography.titleMedium70,
                     color = WeatherColors.white
                 )
