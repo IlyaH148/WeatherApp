@@ -9,8 +9,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.iharkov.weatherapp.domain.model.Weather
 import ru.iharkov.weatherapp.domain.model.WeatherCondition
+import ru.iharkov.weatherapp.domain.repository.WeatherRepository
 
-class CurrentWeatherViewModel : ViewModel() {
+class CurrentWeatherViewModel(
+    private val repository: WeatherRepository
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow<CurrentWeatherUiState>(
         value = CurrentWeatherUiState.Loading
@@ -21,13 +24,7 @@ class CurrentWeatherViewModel : ViewModel() {
         _uiState.value = CurrentWeatherUiState.Loading
         viewModelScope.launch {
             delay(1500)
-            val weather = Weather(
-                temperature = 31,
-                weatherCondition = WeatherCondition.CLOUDY,
-                windSpeed = 4.5,
-                pressure = 759,
-                humidity = 42
-            )
+            val weather = repository.getWeather()
             val weatherUiModel = mapWeatherToUi(weather)
             _uiState.value = CurrentWeatherUiState.Content(weatherUiModel)
         }

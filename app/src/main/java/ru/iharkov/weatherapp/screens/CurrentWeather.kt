@@ -22,6 +22,7 @@ import ru.iharkov.weatherapp.domain.model.Weather
 import ru.iharkov.weatherapp.domain.model.WeatherCondition
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherUiState
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModel
+import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModelFactory
 import ru.iharkov.weatherapp.states.WeatherState
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.statistics.TopBar
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle.BottomBar
@@ -34,7 +35,7 @@ fun CurrentWeather(
     screen: Boolean,
     currentWeather: WeatherState = WeatherState.RAINY,
 ) {
-    val viewModel: CurrentWeatherViewModel = viewModel()
+    val viewModel: CurrentWeatherViewModel = viewModel(factory = CurrentWeatherViewModelFactory())
     val uiState = viewModel.uiState.collectAsState()
 
     var selectedIndex by remember { mutableIntStateOf(0) }
