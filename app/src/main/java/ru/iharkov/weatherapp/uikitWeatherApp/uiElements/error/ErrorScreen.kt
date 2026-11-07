@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +21,9 @@ import ru.iharkov.weatherapp.uikitWeatherApp.typography.WeatherTypography
 
 
 @Composable
-fun ErrorScreen(){
+fun ErrorScreen(
+    text: String,
+){
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -46,7 +47,7 @@ fun ErrorScreen(){
             )
             Spacer(modifier = Modifier.height(WeatherSpacers.spacer22))
             Text(
-                text = stringResource(R.string.error_description),
+                text = text,
                 textAlign = TextAlign.Center,
                 style = WeatherTypography.errorMedium16,
                 color = WeatherColors.errorTitle,

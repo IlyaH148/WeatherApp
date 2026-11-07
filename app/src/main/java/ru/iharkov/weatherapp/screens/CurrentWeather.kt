@@ -1,12 +1,10 @@
 package ru.iharkov.weatherapp.screens
 
-import android.service.chooser.AdditionalContentContract
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -18,12 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.iharkov.weatherapp.R
-import ru.iharkov.weatherapp.domain.model.Weather
-import ru.iharkov.weatherapp.domain.model.WeatherCondition
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherUiState
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModel
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModelFactory
-import ru.iharkov.weatherapp.states.WeatherState
+import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.error.ErrorScreen
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.statistics.TopBar
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle.BottomBar
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle.BottomBarItem
@@ -33,7 +29,6 @@ import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.weatherInformation.BigWe
 fun CurrentWeather(
     onNextClick: () -> Unit,
     screen: Boolean,
-    currentWeather: WeatherState = WeatherState.RAINY,
 ) {
     val viewModel: CurrentWeatherViewModel = viewModel(factory = CurrentWeatherViewModelFactory())
     val uiState = viewModel.uiState.collectAsState()
@@ -105,9 +100,8 @@ fun CurrentWeather(
             }
 
             is CurrentWeatherUiState.Error -> {
-                Text(
+                ErrorScreen(
                     text = state.message,
-                    modifier = Modifier.padding(innerPadding)
                 )
             }
         }

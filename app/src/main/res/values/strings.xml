@@ -7,18 +7,19 @@
     <string name="weather">Погода</string>
     <string name="predict">Прогноз</string>
     <string name="error">Ошибка</string>
-    <string name="weather_cloudy">Облачно</string>
+    <string name="weather_cloudy">Облака</string>
     <string name="weather_fog">Туман</string>
     <string name="weather_heave_snow">Сильный снегопад</string>
     <string name="weather_heave_sleet">Мокрый снег</string>
     <string name="weather_heave_sleet_snow_shower">Снежный ливень</string>
     <string name="weather_overcast">Пасмурно</string>
-    <string name="weather_party_cloudy">Малооблачно</string>
+    <string name="weather_party_cloudy">Облачно</string>
     <string name="weather_rainy">Дождь</string>
     <string name="weather_small_rain">Слабый дождь</string>
     <string name="weather_snowy_shower">Слабый дождь</string>
     <string name="weather_sun">Солнечно</string>
-    <string name="weather_thundershtorm_showers">Дождь с грозой</string>
+    <string name="weather_thunderstorm_showers">Дождь с грозой</string>
+    <string name="weather_snowy">Снег</string>
     <string name="weather_windy">Ветренно</string>
     <string name="error_description">retrofit.NetworkException: host http://weather.com/ could not be resolved</string>
 </resources>

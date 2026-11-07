@@ -4,13 +4,13 @@ package ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle
 
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
+
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
+
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -28,14 +28,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.iharkov.weatherapp.R
 import ru.iharkov.weatherapp.uikitWeatherApp.color.WeatherColors
 import ru.iharkov.weatherapp.uikitWeatherApp.spacers.WeatherSpacers
 import ru.iharkov.weatherapp.uikitWeatherApp.typography.WeatherTypography
-import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle.BottomBarItem
 import kotlin.collections.listOf
 
 
@@ -52,8 +50,6 @@ fun BottomBar(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceAround
-
-
     ) {
         itemsIndexed(items) { index, item ->
             val isSelected = index == selectedIndex
@@ -64,14 +60,15 @@ fun BottomBar(
                     IconButton(
                         onClick = { onSelect(index) },
                         modifier = Modifier
-                            .size(64.dp,32.dp)
                             .clip(RoundedCornerShape(16.dp))
+                            .size(64.dp,32.dp)
                             .background(if (isSelected) WeatherColors.accent70
                                                 else Color.Transparent )
                     ) {
                         Icon(
                             contentDescription = "",
-                            painter = painterResource(item.icon)
+                            painter = painterResource(item.icon),
+                            modifier = Modifier
                         )
                     }
                 Spacer(modifier = Modifier.height(WeatherSpacers.spacer12))
