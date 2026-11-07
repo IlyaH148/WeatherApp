@@ -34,8 +34,8 @@ fun mapWeatherToUi(weather: Weather): WeatherUiModel{
     return WeatherUiModel(
         temperature = if(weather.temperature > 0)"+${weather.temperature}°" else if(weather.temperature < 0 )"${weather.temperature}°" else "0°",
         weatherState = weatherState,
-        windSpeed = " ${weather.windSpeed} м/с",
-        pressure = " ${weather.pressure} мм",
+        windSpeed = " ${weather.windSpeed} М/С",
+        pressure = " ${weather.pressure} мм.",
         humidity = " ${weather.humidity} %"
     )
 }

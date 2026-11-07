@@ -85,7 +85,7 @@ val WeatherTypography: WATypography
             captionSemiBold20 = TextStyle(
                 fontSize = 20.sp,
                 lineHeight = 20.sp,
-                letterSpacing = 4.sp ,
+                letterSpacing = 2.sp ,
                 fontFamily = Roboto,
                 fontWeight = FontWeight.SemiBold
             ),

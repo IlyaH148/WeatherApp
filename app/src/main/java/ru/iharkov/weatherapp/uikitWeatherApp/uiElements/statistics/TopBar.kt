@@ -46,7 +46,6 @@ fun TopBar(
     ) {
         val titleList = listOf(R.string.time, R.string.speed_wind, R.string.pressure, R.string.wet)
         val valueList = listOf(time, speedWind, pressure, wet)
-
         LazyRow(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween

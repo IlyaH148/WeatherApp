@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="time">Время</string>
-    <string name="speed_wind">Ск.ветра</string>
+    <string name="speed_wind">Ск. ветра</string>
     <string name="pressure">Давление</string>
     <string name="wet">Влажность</string>
     <string name="weather">Погода</string>
