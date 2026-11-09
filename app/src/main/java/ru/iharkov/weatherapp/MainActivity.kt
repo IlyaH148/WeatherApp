@@ -7,10 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import ru.iharkov.weatherapp.data.repository.FakeWeatherRepository
-import ru.iharkov.weatherapp.navigation.AppNavHost
-import ru.iharkov.weatherapp.screens.LoadingScreen
+import ru.iharkov.weatherapp.presentation.navigation.AppNavHost
 import ru.iharkov.weatherapp.ui.theme.WeatherAppTheme
-import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.error.ErrorScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

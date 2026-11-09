@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import ru.iharkov.weatherapp.states.ForecastDay
+import ru.iharkov.weatherapp.presentation.currentweather.states.ForecastDay
 import ru.iharkov.weatherapp.uikitWeatherApp.color.WeatherColors
 import ru.iharkov.weatherapp.uikitWeatherApp.typography.WeatherTypography
 

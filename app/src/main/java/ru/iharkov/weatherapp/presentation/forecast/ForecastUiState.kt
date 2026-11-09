@@ -1,6 +1,6 @@
 package ru.iharkov.weatherapp.presentation.forecast
 
-import ru.iharkov.weatherapp.states.ForecastDay
+import ru.iharkov.weatherapp.presentation.currentweather.states.ForecastDay
 
 sealed interface ForecastUiState {
 

@@ -1,4 +1,4 @@
-package ru.iharkov.weatherapp.navigation
+package ru.iharkov.weatherapp.presentation.navigation
 
 sealed class Destination(val route: String) {
 

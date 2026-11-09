@@ -1,6 +1,6 @@
 package ru.iharkov.weatherapp.presentation.currentweather
 
-import ru.iharkov.weatherapp.states.WeatherState
+import ru.iharkov.weatherapp.presentation.currentweather.states.WeatherState
 
 data class WeatherUiModel(
     val temperature: String,

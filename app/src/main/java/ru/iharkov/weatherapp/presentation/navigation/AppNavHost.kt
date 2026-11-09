@@ -1,4 +1,4 @@
-package ru.iharkov.weatherapp.navigation
+package ru.iharkov.weatherapp.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

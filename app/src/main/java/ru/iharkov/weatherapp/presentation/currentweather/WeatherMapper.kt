@@ -3,8 +3,8 @@ package ru.iharkov.weatherapp.presentation.currentweather
 import ru.iharkov.weatherapp.domain.model.Forecast
 import ru.iharkov.weatherapp.domain.model.Weather
 import ru.iharkov.weatherapp.domain.model.WeatherCondition
-import ru.iharkov.weatherapp.states.ForecastDay
-import ru.iharkov.weatherapp.states.WeatherState
+import ru.iharkov.weatherapp.presentation.currentweather.states.ForecastDay
+import ru.iharkov.weatherapp.presentation.currentweather.states.WeatherState
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
