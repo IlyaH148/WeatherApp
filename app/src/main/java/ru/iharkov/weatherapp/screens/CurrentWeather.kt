@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.iharkov.weatherapp.R
+import ru.iharkov.weatherapp.domain.repository.WeatherRepository
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherUiState
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModel
 import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModelFactory
@@ -29,8 +30,9 @@ import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.weatherInformation.BigWe
 fun CurrentWeather(
     onNextClick: () -> Unit,
     screen: Boolean,
+    repository: WeatherRepository
 ) {
-    val viewModel: CurrentWeatherViewModel = viewModel(factory = CurrentWeatherViewModelFactory())
+    val viewModel: CurrentWeatherViewModel = viewModel(factory = CurrentWeatherViewModelFactory(repository))
     val uiState = viewModel.uiState.collectAsState()
 
     var selectedIndex by remember { mutableIntStateOf(0) }

@@ -6,12 +6,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import ru.iharkov.weatherapp.domain.repository.WeatherRepository
 import ru.iharkov.weatherapp.screens.CurrentWeather
 import ru.iharkov.weatherapp.screens.Forecast
 
 @Composable
 fun AppNavHost(
     navHostController: NavHostController,
+    repository: WeatherRepository
 ) {
     val navBackStackEntry by navHostController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
@@ -27,7 +29,8 @@ fun AppNavHost(
                 onNextClick = {
                     navHostController.navigate(Destination.Second.route)
                 },
-                screen = screenFirstState
+                screen = screenFirstState,
+                repository
             )
         }
 
@@ -36,7 +39,8 @@ fun AppNavHost(
                 onBackClick = {
                     navHostController.popBackStack()
                 },
-                screen = screenSecondState
+                screen = screenSecondState,
+                repository
             )
         }
     }

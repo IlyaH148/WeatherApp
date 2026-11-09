@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.iharkov.weatherapp.R
+import ru.iharkov.weatherapp.domain.repository.WeatherRepository
 
 import ru.iharkov.weatherapp.presentation.forecast.ForecastUiState
 import ru.iharkov.weatherapp.presentation.forecast.ForecastViewModel
@@ -35,9 +36,10 @@ import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle.BottomBarItem
 fun Forecast(
     onBackClick: () -> Unit,
     screen: Boolean,
+    repository: WeatherRepository
 ) {
 
-    val viewModel: ForecastViewModel = viewModel(factory = ForecastViewModelFactory())
+    val viewModel: ForecastViewModel = viewModel(factory = ForecastViewModelFactory(repository))
     val uiState = viewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {
