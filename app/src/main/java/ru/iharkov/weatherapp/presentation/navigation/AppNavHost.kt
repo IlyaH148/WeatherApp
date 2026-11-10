@@ -7,8 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import ru.iharkov.weatherapp.domain.repository.WeatherRepository
-import ru.iharkov.weatherapp.screens.CurrentWeather
-import ru.iharkov.weatherapp.screens.Forecast
+import ru.iharkov.weatherapp.presentation.screens.CurrentWeather
+import ru.iharkov.weatherapp.presentation.screens.Forecast
 
 @Composable
 fun AppNavHost(

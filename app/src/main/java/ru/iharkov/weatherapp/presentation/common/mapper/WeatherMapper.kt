@@ -1,10 +1,11 @@
-package ru.iharkov.weatherapp.presentation.currentweather
+package ru.iharkov.weatherapp.presentation.common.mapper
 
 import ru.iharkov.weatherapp.domain.model.Forecast
 import ru.iharkov.weatherapp.domain.model.Weather
 import ru.iharkov.weatherapp.domain.model.WeatherCondition
-import ru.iharkov.weatherapp.presentation.currentweather.states.ForecastDay
-import ru.iharkov.weatherapp.presentation.currentweather.states.WeatherState
+import ru.iharkov.weatherapp.presentation.forecast.ForecastDay
+import ru.iharkov.weatherapp.presentation.common.states.WeatherState
+import ru.iharkov.weatherapp.presentation.currentweather.WeatherUiModel
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -28,11 +29,11 @@ fun mapConditionToUi(condition: WeatherCondition): WeatherState {
         WeatherCondition.WINDY -> WeatherState.WINDY
     }
 }
-fun mapWeatherToUi(weather: Weather): WeatherUiModel{
+fun mapWeatherToUi(weather: Weather): WeatherUiModel {
 
     val weatherState = mapConditionToUi(weather.weatherCondition)
     return WeatherUiModel(
-        temperature = if(weather.temperature > 0)"+${weather.temperature}°" else if(weather.temperature < 0 )"${weather.temperature}°" else "0°",
+        temperature = if (weather.temperature > 0) "+${weather.temperature}°" else if (weather.temperature < 0) "${weather.temperature}°" else "0°",
         weatherState = weatherState,
         windSpeed = " ${weather.windSpeed} М/С",
         pressure = " ${weather.pressure} мм.",

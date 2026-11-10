@@ -1,4 +1,4 @@
-package ru.iharkov.weatherapp.presentation.currentweather.states
+package ru.iharkov.weatherapp.presentation.common.states
 
 import ru.iharkov.weatherapp.R
 

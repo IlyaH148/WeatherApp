@@ -1,13 +1,9 @@
-package ru.iharkov.weatherapp.screens
+package ru.iharkov.weatherapp.presentation.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -21,31 +17,30 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.iharkov.weatherapp.R
 import ru.iharkov.weatherapp.domain.repository.WeatherRepository
-
-import ru.iharkov.weatherapp.presentation.forecast.ForecastUiState
-import ru.iharkov.weatherapp.presentation.forecast.ForecastViewModel
-import ru.iharkov.weatherapp.presentation.forecast.ForecastViewModelFactory
-import ru.iharkov.weatherapp.uikitWeatherApp.spacers.WeatherSpacers
-import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.card.WeatherCard
+import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherUiState
+import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModel
+import ru.iharkov.weatherapp.presentation.currentweather.CurrentWeatherViewModelFactory
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.error.ErrorScreen
+import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.statistics.TopBar
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle.BottomBar
 import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.toggle.BottomBarItem
-
+import ru.iharkov.weatherapp.uikitWeatherApp.uiElements.weatherInformation.BigWeather
 
 @Composable
-fun Forecast(
-    onBackClick: () -> Unit,
+fun CurrentWeather(
+    onNextClick: () -> Unit,
     screen: Boolean,
     repository: WeatherRepository
 ) {
-
-    val viewModel: ForecastViewModel = viewModel(factory = ForecastViewModelFactory(repository))
+    val viewModel: CurrentWeatherViewModel = viewModel(factory = CurrentWeatherViewModelFactory(repository))
     val uiState = viewModel.uiState.collectAsState()
 
+    var selectedIndex by remember { mutableIntStateOf(0) }
+
     LaunchedEffect(Unit) {
-        viewModel.loadForecast()
+        viewModel.loadWeather()
     }
-    var selectedIndex by remember { mutableIntStateOf(1) }
+
     val items = listOf(
         BottomBarItem(
             icon = R.drawable.ic_sun_label,
@@ -56,47 +51,61 @@ fun Forecast(
             title = R.string.predict,
         )
     )
-    Scaffold() { padding: PaddingValues ->
+
+    Scaffold(
+        modifier = Modifier.fillMaxSize()
+    ) { innerPadding ->
+
         when (val state = uiState.value) {
-            ForecastUiState.Loading -> {
+
+            is CurrentWeatherUiState.Loading -> {
                 LoadingScreen()
             }
 
-            is ForecastUiState.Content -> {
+            is CurrentWeatherUiState.Content -> {
+                val weather = state.weather
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
+                        .padding(innerPadding),
+                    verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    val forecast = state.forecast
-                    LazyColumn(
-                        modifier = Modifier
-                            .padding(padding)
-                            .padding(start = 24.dp, end = 24.dp)
-                            .weight(1f),
-                    ) {
-                        items(forecast) { forecastDay ->
-                            WeatherCard(forecastDay)
-                            Spacer(modifier = Modifier.height(WeatherSpacers.spacer20))
-                        }
-                    }
+                    TopBar(
+                        "11:25",
+                        weather.windSpeed,
+                        weather.pressure,
+                        weather.humidity,
+                    )
+
+                    BigWeather(
+                        weather.temperature,
+                        weather.weatherState.icon,
+                        weather.weatherState.title,
+                        modifier = Modifier.padding(
+                            start = 42.dp,
+                            end = 40.dp
+                        )
+                    )
+
                     BottomBar(
                         items = items,
                         selectedIndex = selectedIndex,
                         onSelect = { index ->
                             selectedIndex = index
-
-                            if (index == 0) {
-                                onBackClick()
+                            if (index == 1) {
+                                onNextClick()
                             }
                         }
                     )
                 }
             }
 
-            is ForecastUiState.Error -> {
-                ErrorScreen(text = state.message)
+            is CurrentWeatherUiState.Error -> {
+                ErrorScreen(
+                    text = state.message,
+                )
             }
         }
     }
-
 }
