@@ -9,7 +9,6 @@ import java.time.LocalDate
 
 class FakeWeatherRepository() : WeatherRepository {
     override suspend fun getWeather(): Weather {
-        throw IllegalArgumentException("Ошибка")
         val weather = Weather(
             temperature = 31,
             weatherCondition = WeatherCondition.PARTY_CLOUDY,

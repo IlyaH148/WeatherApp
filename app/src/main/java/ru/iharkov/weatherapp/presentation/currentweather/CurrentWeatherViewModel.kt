@@ -27,7 +27,7 @@ class CurrentWeatherViewModel(
             delay(1500)
             try{
             val weather = repository.getWeather()
-                Log.d("!!!", "loadWeather: $weather ")
+            Log.d("!!!", "loadWeather: $weather ")
             val weatherUiModel = mapWeatherToUi(weather)
             _uiState.value = CurrentWeatherUiState.Content(weatherUiModel)
             } catch(e: Exception){

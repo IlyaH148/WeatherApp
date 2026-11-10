@@ -49,3 +49,5 @@ fun mapForecastToUi(forecast: Forecast): ForecastDay{
         temperature = if(forecast.temperature > 0) "+${forecast.temperature}" else if(forecast.temperature < 0) "${forecast.temperature}" else "0"
         )
 }
+
+
