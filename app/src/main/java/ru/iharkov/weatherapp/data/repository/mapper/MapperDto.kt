@@ -37,7 +37,7 @@ fun mapCurrentDtoToWeather(currentDto: CurrentDto): Weather{
         time = LocalTime.parse(currentDto.datetime),
         temperature = currentDto.temp.roundToInt(),
         weatherCondition = weatherCondition,
-        windSpeed = (currentDto.windSpeed/3.6).roundToOneDecimal(),
+        windSpeed = (currentDto.windspeed/3.6).roundToOneDecimal(),
         pressure = (currentDto.pressure * 0.75006).roundToInt(),
         humidity = currentDto.humidity.roundToInt()
     )

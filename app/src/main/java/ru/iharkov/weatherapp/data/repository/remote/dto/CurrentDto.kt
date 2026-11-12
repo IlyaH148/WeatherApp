@@ -5,6 +5,6 @@ data class CurrentDto(
     val temp: Double,
     val humidity: Double,
     val pressure: Double,
-    val windSpeed: Double,
+    val windspeed: Double,
     val icon: String,
 )
