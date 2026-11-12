@@ -6,6 +6,7 @@ import ru.iharkov.weatherapp.domain.model.WeatherCondition
 import ru.iharkov.weatherapp.presentation.forecast.ForecastDay
 import ru.iharkov.weatherapp.presentation.common.states.WeatherState
 import ru.iharkov.weatherapp.presentation.currentweather.WeatherUiModel
+import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -33,11 +34,12 @@ fun mapWeatherToUi(weather: Weather): WeatherUiModel {
 
     val weatherState = mapConditionToUi(weather.weatherCondition)
     return WeatherUiModel(
+        time = weather.time.toString(),
         temperature = if (weather.temperature > 0) "+${weather.temperature}°" else if (weather.temperature < 0) "${weather.temperature}°" else "0°",
         weatherState = weatherState,
         windSpeed = " ${weather.windSpeed} М/С",
         pressure = " ${weather.pressure} мм.",
-        humidity = " ${weather.humidity} %"
+        humidity = " ${weather.humidity} %",
     )
 }
 

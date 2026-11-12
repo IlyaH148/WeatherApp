@@ -8,6 +8,7 @@ import ru.iharkov.weatherapp.domain.model.WeatherCondition
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.time.LocalDate
+import java.time.LocalTime
 import kotlin.math.roundToInt
 
 fun mapIconToCondition(icon: String): WeatherCondition{
@@ -33,9 +34,10 @@ fun mapCurrentDtoToWeather(currentDto: CurrentDto): Weather{
 
     val weatherCondition = mapIconToCondition(currentDto.icon)
     return Weather(
+        time = LocalTime.parse(currentDto.datetime),
         temperature = currentDto.temp.roundToInt(),
         weatherCondition = weatherCondition,
-        windSpeed = (currentDto.windspeed/3.6).roundToOneDecimal(),
+        windSpeed = (currentDto.windSpeed/3.6).roundToOneDecimal(),
         pressure = (currentDto.pressure * 0.75006).roundToInt(),
         humidity = currentDto.humidity.roundToInt()
     )

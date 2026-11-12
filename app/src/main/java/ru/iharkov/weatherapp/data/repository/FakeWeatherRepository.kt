@@ -6,15 +6,17 @@ import ru.iharkov.weatherapp.domain.model.Weather
 import ru.iharkov.weatherapp.domain.model.WeatherCondition
 import ru.iharkov.weatherapp.domain.repository.WeatherRepository
 import java.time.LocalDate
+import java.time.LocalTime
 
 class FakeWeatherRepository() : WeatherRepository {
     override suspend fun getWeather(): Weather {
         val weather = Weather(
+            time = LocalTime.of(11, 25),
             temperature = 31,
             weatherCondition = WeatherCondition.PARTY_CLOUDY,
             windSpeed = 4.5,
             pressure = 759,
-            humidity = 42
+            humidity = 42,
         )
         return weather
     }

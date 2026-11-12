@@ -72,7 +72,7 @@ fun CurrentWeather(
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
                     TopBar(
-                        "11:25",
+                        weather.time,
                         weather.windSpeed,
                         weather.pressure,
                         weather.humidity,
