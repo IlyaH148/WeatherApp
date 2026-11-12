@@ -1,18 +1,18 @@
 package ru.iharkov.weatherapp.data.repository.remote
 
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 import ru.iharkov.weatherapp.data.repository.remote.dto.WeatherResponseDto
 
 interface WeatherApi{
-    @GET("v1/forecast")
+    @GET("VisualCrossingWebServices/rest/services/timeline/{latitude},{longitude}/next10days")
     suspend fun getForecast(
-        @Query("latitude")  latitude: Double,
-        @Query("longitude")  longitude: Double,
-        @Query("current")  current: String = "temperature_2m,relative_humidity_2m,surface_pressure,wind_speed_10m,weather_code",
-        @Query("daily")  daily: String = "weather_code,temperature_2m_max",
-        @Query("forecast_days")  forecastDays: Int = 10,
-        @Query("timezone")  timezone: String = "Europe/Samara",
-        @Query("wind_speed_unit")  windSpeedUnit: String = "ms",
+        @Path("latitude")  latitude: Double,
+        @Path("longitude")  longitude: Double,
+        @Query("key")  apiKey: String,
+        @Query("unitGroup")  unitGroup: String = "metric",
+        @Query("include")  include: String = "days,current",
+        @Query("contentType")  contentType: String = "json",
         ): WeatherResponseDto
 }

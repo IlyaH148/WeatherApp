@@ -1,6 +1,6 @@
 package ru.iharkov.weatherapp.data.repository.remote.dto
 
 data class WeatherResponseDto(
-    val current: CurrentDto,
-    val daily: DailyDto
+    val currentConditions: CurrentDto,
+    val days: List<DailyDto>
 )

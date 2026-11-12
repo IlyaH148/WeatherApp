@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
     val weatherApi: WeatherApi = Retrofit.Builder()
-        .baseUrl("https://api.open-meteo.com/v1/forecast/")
+        .baseUrl("https://weather.visualcrossing.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(WeatherApi::class.java)
