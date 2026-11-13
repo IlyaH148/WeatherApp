@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.iharkov.weatherapp.domain.repository.WeatherRepository
+import ru.iharkov.weatherapp.presentation.common.mapper.mapErrorToMessage
 import ru.iharkov.weatherapp.presentation.common.mapper.mapWeatherToUi
 
 class CurrentWeatherViewModel(
@@ -31,8 +32,8 @@ class CurrentWeatherViewModel(
             val weatherUiModel = mapWeatherToUi(weather)
             _uiState.value = CurrentWeatherUiState.Content(weatherUiModel)
             } catch(e: Exception){
-                Log.e("!!!", "loadWeather: ${e.message} ", )
-                _uiState.value = CurrentWeatherUiState.Error(e.message?:"Ошибко")
+                Log.e("!!!", "loadWeather: ${mapErrorToMessage(e)} ", e)
+                _uiState.value = CurrentWeatherUiState.Error(mapErrorToMessage(e))
             }
         }
     }
