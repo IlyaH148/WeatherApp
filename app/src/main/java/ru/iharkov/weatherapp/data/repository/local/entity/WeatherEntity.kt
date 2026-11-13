@@ -1,0 +1,17 @@
+package ru.iharkov.weatherapp.data.repository.local.entity
+
+import android.health.connect.datatypes.units.Temperature
+import androidx.room3.Entity
+import androidx.room3.PrimaryKey
+
+@Entity(tableName = "weather")
+data class WeatherEntity(
+    @PrimaryKey val id: Int = 0,
+    val time: String,
+    val temperature: Int,
+    val weatherCondition: String,
+    val windSpeed: Double,
+    val pressure: Int,
+    val humidity: Int,
+    val savedAt: Long,
+)
