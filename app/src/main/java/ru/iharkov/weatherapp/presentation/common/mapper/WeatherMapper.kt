@@ -34,7 +34,7 @@ fun mapWeatherToUi(weather: Weather): WeatherUiModel {
 
     val weatherState = mapConditionToUi(weather.weatherCondition)
     return WeatherUiModel(
-        time = weather.time.toString(),
+        time = weather.time.format(DateTimeFormatter.ofPattern("HH:mm")),
         temperature = if (weather.temperature > 0) "+${weather.temperature}°" else if (weather.temperature < 0) "${weather.temperature}°" else "0°",
         weatherState = weatherState,
         windSpeed = " ${weather.windSpeed} М/С",

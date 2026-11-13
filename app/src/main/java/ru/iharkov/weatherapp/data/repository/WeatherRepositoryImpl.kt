@@ -1,10 +1,12 @@
 package ru.iharkov.weatherapp.data.repository
 
 import NoInternetException
+import android.util.Log
 import okio.IOException
 import retrofit2.HttpException
 import ru.iharkov.weatherapp.data.repository.local.WeatherDao
 import ru.iharkov.weatherapp.data.repository.mapper.mapCurrentDtoToWeather
+
 import ru.iharkov.weatherapp.data.repository.mapper.mapDaysToForecastList
 import ru.iharkov.weatherapp.data.repository.mapper.mapForecastEntityToForecast
 import ru.iharkov.weatherapp.data.repository.mapper.mapForecastToForecastEntity
@@ -44,8 +46,11 @@ class WeatherRepositoryImpl(
         val cached = dao.getWeather()
         val now = System.currentTimeMillis()
         if (cached != null && (now - cached.savedAt) < CACHE_TTL_MS) {
+            Log.d("!!!", "getWeather: отработало в ветке кэша ")
             return mapWeatherEntityToWeather(cached)
+
         } else {
+            Log.d("!!!", "getWeather: отработало в ветке сети ")
             val response = fetchWeatherResponse()
             val weather = mapCurrentDtoToWeather(response.currentConditions)
             dao.insertWeather(mapWeatherToWeatherEntity(weather, now))
@@ -57,10 +62,12 @@ class WeatherRepositoryImpl(
         val cached = dao.getForecast()
         val now = System.currentTimeMillis()
         if (cached.isNotEmpty() && now - cached.first().savedAt < CACHE_TTL_MS) {
+            Log.d("!!!", "getForecast: отработало в ветке кэша ")
             return cached.map { entity ->
                 mapForecastEntityToForecast(entity)
             }
         } else {
+            Log.d("!!!", "getForecast: отработало в ветке сети ")
             val response = fetchWeatherResponse()
             val forecast = mapDaysToForecastList(response.days)
             dao.clear()
