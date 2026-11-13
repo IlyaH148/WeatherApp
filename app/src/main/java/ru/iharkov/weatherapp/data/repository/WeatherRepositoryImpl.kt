@@ -22,7 +22,7 @@ class WeatherRepositoryImpl(
 
     private suspend fun fetchWeatherResponse(): WeatherResponseDto{
         try {
-            return api.getForecast(LATITUDE, 2131312.1, API_KEY)
+            return api.getForecast(LATITUDE, LONGITUDE, API_KEY)
         } catch (e: IOException){
             throw NoInternetException()
         }catch (e: HttpException){
