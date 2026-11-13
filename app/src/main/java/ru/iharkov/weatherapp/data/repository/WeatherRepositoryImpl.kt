@@ -3,6 +3,7 @@ package ru.iharkov.weatherapp.data.repository
 import NoInternetException
 import okio.IOException
 import retrofit2.HttpException
+import ru.iharkov.weatherapp.data.repository.local.WeatherDao
 import ru.iharkov.weatherapp.data.repository.mapper.mapCurrentDtoToWeather
 import ru.iharkov.weatherapp.data.repository.mapper.mapDaysToForecastList
 import ru.iharkov.weatherapp.data.repository.remote.API_KEY
@@ -17,7 +18,8 @@ const val LATITUDE = 53.53
 const val LONGITUDE = 49.35
 
 class WeatherRepositoryImpl(
-    private val api: WeatherApi
+    private val api: WeatherApi,
+    private val dao: WeatherDao
 ): WeatherRepository {
 
     private suspend fun fetchWeatherResponse(): WeatherResponseDto{

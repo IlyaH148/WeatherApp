@@ -1,8 +1,8 @@
 package ru.iharkov.weatherapp.data.repository.local.entity
 
 import android.health.connect.datatypes.units.Temperature
-import androidx.room3.Entity
-import androidx.room3.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "weather")
 data class WeatherEntity(

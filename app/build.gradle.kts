@@ -37,7 +37,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.room3.common)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(platform(libs.androidx.compose.bom))
